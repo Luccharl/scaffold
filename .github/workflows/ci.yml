@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [dev, qat, staging, main]
+  push:
+    branches: [dev, qat, staging, main]
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Confirm pipeline trigger
+        run: echo "CI triggered on ${{ github.ref_name }} via ${{ github.event_name }}"
+      # TODO once Laravel backend exists:
+      #   - composer install
+      #   - php artisan test
+      # TODO once Vue frontend exists:
+      #   - npm ci
+      #   - npm run build
+      #   - npm run test (if added)
